@@ -1,0 +1,23 @@
+<div class="choice">
+  <div class="choice__pizza">
+    <button
+      *ngFor="let pizzaType of pizzaTypes"
+      (click)="category = pizzaType.category; updatePizzas()"
+      [ngClass]="{'active': pizzaType.category === category}"
+    >{{pizzaType.pizzaType}}</button>
+  </div>
+  <div class="choice__sort">
+    <div>
+      <span #arrowSpan id="arrow_down">▼</span>
+      <b>Сортировка по:</b>
+      <span (click)="toggleModal()">{{sortTypes[sort].by}}</span>
+    </div>
+    <div>
+      <div class="popup" *ngIf="show" (clickOutside)="closeModal()" [delayClickOutsideInit]="true">
+        <div class="sort" (click)="sort = 0; updatePizzas(); closeModal()">Популярности</div>
+        <div class="sort" (click)="sort = 1; updatePizzas(); closeModal()">Цене</div>
+        <div class="sort" (click)="sort = 2; updatePizzas(); closeModal()">Алфавиту</div>
+      </div>
+    </div>
+  </div>
+</div>

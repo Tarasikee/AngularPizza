@@ -1,0 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Helvetica", sans-serif;
+  //box-sizing: border-box;
+  user-select: none; //TODO: add class and delete this property from all html tags
+}
+
+body {
+  background-color: #ffdf8c;
+  padding: 50px 0;
+
+  @media (max-width: 768px) {
+    padding: 20px 0;
+  }
+}
+
+.wrapper {
+  width: calc(100vw - 100px);
+  height: 100%;
+  background-color: #fff;
+  margin: 0 auto;
+  border-radius: 10px;
+  max-width: 1400px;
+
+  @media (max-width: 891px) {
+    width: calc(100% - 40px);
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+  border: none;
+
+  &:disabled {
+    cursor: default!important;
+  }
+}

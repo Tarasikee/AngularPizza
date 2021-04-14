@@ -1,0 +1,21 @@
+<div class="main">
+  <app-choice></app-choice>
+  <div class="main__outer">
+    <h2>Выберите: </h2>
+    <div class="main__outer__inner" *ngIf="pizzas; else loading">
+      <app-pizza
+        *ngFor="let pizza of pizzas"
+        id="{{pizza.id}}"
+        imageUrl="{{pizza.imageUrl}}"
+        name="{{pizza.name}}"
+        [price]="pizza.price"
+        [types]="pizza.types"
+        [sizes]="pizza.sizes"
+      ></app-pizza>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  Loading...
+</ng-template>

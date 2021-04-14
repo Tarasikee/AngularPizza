@@ -1,0 +1,46 @@
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .title {
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+
+    svg {
+      position: relative;
+      top: -2px;
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+  }
+
+  .clear {
+    display: flex;
+    cursor: pointer;
+    user-select: none;
+
+    span {
+      display: inline-block;
+      margin-left: 7px;
+      color: #b6b6b6;
+      font-size: 18px;
+      transition: all .15s ease-in-out;
+    }
+
+    svg path {
+      transition: all .15s ease-in-out;
+    }
+
+    &:hover span {
+      color: black;
+    }
+
+    &:hover svg path {
+      stroke: black;
+    }
+  }
+}

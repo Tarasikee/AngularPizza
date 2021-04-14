@@ -1,0 +1,62 @@
+<div class="content">
+  <div class="cart">
+    <div *ngIf="cart.length > 0; else emptyCart">
+
+      <app-top></app-top>
+
+      <div class="items" *ngFor="let pizza of cart">
+        <div class="item" *ngIf="pizza">
+          <ng-container>
+            <div class="img">
+              <img src="{{pizza.imageUrl}}" alt="Pizza">
+            </div>
+            <div class="info">
+              <h3>{{pizza.name}}</h3>
+              <p>{{pizza.type === 0 ? 'Тонкое' : 'Традиционное'}} тесто, {{pizza.size}} см.</p>
+            </div>
+
+            <div class="count">
+              <div class="minus" (click)="decrement(pizza)"><span>−</span></div>
+              <span>{{pizza.amount}}</span>
+              <div class="plus" (click)="increment(pizza)"><span>+</span></div>
+            </div>
+
+            <div class="price"><span>{{pizza.price * pizza.amount}} ₴</span></div>
+
+            <div (click)="delete(pizza)" class="remove"><span>&times;</span></div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <div class="details">
+          <span>Всего пицц: <b>{{amount || 0}} шт.</b></span>
+          <span>Сумма заказа: <b>{{price || 0}} ₴</b></span>
+        </div>
+
+        <div class="buttons">
+          <a routerLink="/">
+            <p>❮</p>
+            <p>Вернуться назад</p>
+          </a>
+          <button (click)="pay()"><span>Оплатить сейчас</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #emptyCart>
+  <div class="empty">
+    <h2>Корзина пустая 😕</h2>
+    <p>
+      Вероятней всего, вы не заказывали ещё пиццу.<br>
+      Для того, чтобы заказать пиццу, перейди на главную страницу.
+    </p>
+    <img src="./assets/img/empty-cart.ceb2faf0.png" alt="Empty cart">
+    <a routerLink="/">
+      <span>Вернуться назад</span>
+    </a>
+  </div>
+</ng-template>

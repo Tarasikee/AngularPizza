@@ -1,0 +1,16 @@
+<header class="header">
+  <div class="header__outer">
+    <img routerLink="/" class="logo" src="assets/img/pizza-logo.f3327011.svg" alt="">
+    <div class="header__inner">
+      <h2>Angular Pizza</h2>
+      <p>Самая мощная пицца во вселенной</p>
+    </div>
+  </div>
+  <button routerLink="/cart">
+    <span>{{price || 0}}</span>
+    <span>₴</span>
+    <div class="button__delimiter"></div>
+    <img src="assets/img/shopping-cart-empty-side-view.svg" class="sv_two" alt="">
+    <span>{{amount || 0}}</span>
+  </button>
+</header>

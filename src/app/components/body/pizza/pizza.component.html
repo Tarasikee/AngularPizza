@@ -1,0 +1,31 @@
+<div class="pizza">
+
+  <img src="{{imageUrl}}" alt="">
+
+  <p>{{name}}</p>
+
+  <div class="choose">
+    <div class="dough">
+      <button
+        *ngFor="let type of availableTypes"
+        (click)="onTypeClick(type)"
+        [ngClass]="{'active' : type === currentType}"
+        [disabled]="!types.includes(type)"
+      >{{type === 0 ? 'Тонкое' : 'Традиционное'}}
+      </button>
+    </div>
+    <div class="size">
+      <button
+        *ngFor="let size of availableSizes"
+        (click)="onSizeClick(size)"
+        [ngClass]="{'active' : size === currentSize}"
+        [disabled]="!sizes.includes(size)">{{size}} см.
+      </button>
+    </div>
+  </div>
+
+  <div class="down">
+    <p>От: {{price}} ₴</p>
+    <button (click)="addToCart()"><span>+ Добавить</span></button>
+  </div>
+</div>
